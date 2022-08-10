@@ -13,7 +13,7 @@ const closeModal = (modal, classOpen) => {
 			element.type === 'text' ||
 			element.type === 'number'
 		) {
-			element.value =  '';
+			element.value = '';
 		}
    });
 };

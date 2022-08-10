@@ -3,3 +3,5 @@ export const row = document.querySelector('.table-row');
 export const modal = document.querySelector('.modal');
 export const form = document.querySelector('.modal-content');
 export const preview = document.querySelector('.preview');
+export const tableGoods = document.querySelector('.table-goods');
+export const category = document.querySelector('#category');
