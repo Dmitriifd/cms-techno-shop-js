@@ -1,6 +1,8 @@
+import { API_URI } from './const.js';
 import { category, form, modal } from './elems.js';
 import { closeModal } from './modalController.js';
-import { getCategory, postGoods } from './serviceAPI.js';
+import { showPreview } from './previewController.js';
+import { getCategory, getGoods, postGoods } from './serviceAPI.js';
 import { renderRow } from './tableView.js';
 import { toBase64 } from './utils.js';
 
@@ -41,3 +43,14 @@ export const formController = () => {
         closeModal(modal, 'd-block');
 	});
 };
+
+export const fillingForm = async (id) => {
+    const { title, category, description, display, price, image } = await getGoods(id);
+    form.title.value = title;
+    form.category.value = category;
+    form.description.value = description.join('\n');
+    form.display.value = display;
+    form.price.value = price;
+    form.imagesave.value = image;
+    showPreview(`${API_URI}${image}`);
+}
